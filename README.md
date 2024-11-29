@@ -1,4 +1,4 @@
-# SIT ICT3215 Digital-Forensics Project
+# SIT ICT3215 PA-G 34 Digital-Forensics Project
 ---
 
 # Automatic Docker Forensics Monitoring and Forensics Tool 
@@ -32,11 +32,11 @@ sudo python3 main.py
 
 Select the container you want to monitor, and press enter.
 
-![alt text]({0B1843BB-FA7A-4FB7-869D-60CF9A4C72E3}.png)
+![alt text](/readme_images/{0B1843BB-FA7A-4FB7-869D-60CF9A4C72E3}.png)
 
 
 # 4. Choosing monitoring function
 
 Select the monitoring function
 
-![alt text]({32F2C8D5-5F21-45F0-A01E-19915A8EFAF4}.png)
+![alt text](/readme_images/{32F2C8D5-5F21-45F0-A01E-19915A8EFAF4}.png)
