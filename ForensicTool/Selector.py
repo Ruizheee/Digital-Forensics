@@ -1,4 +1,3 @@
-import keyboard
 from ProcessMonitor import ProcessMonitor
 from NetworkMonitor import NetworkMonitor
 from StatisticsMonitor import StatisticsMonitor
