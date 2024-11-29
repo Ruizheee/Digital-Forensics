@@ -119,11 +119,3 @@ class ProcessMonitor:
                 print(f"An error has occurred: {error}")
             except Exception as e:
                 print(f"Unexpected error: {e}")
-
-# if __name__ == "__main__":
-#     container_name = "7d47cbc3fd39"
-#     client = docker.from_env()
-#     container = client.containers.get(container_name)
-#     monitor = ContainerMonitor(container,client)
-#     monitor.monitor_processes()
-

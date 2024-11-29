@@ -158,9 +158,3 @@ class NetworkMonitor:
                           f"(Last State: {dead_conn['state']}) (Last Seen: {dead_conn['timestamp']})")
 
             time.sleep(1)
-
-# if __name__ == "__main__":
-#     container_name = "7d47cbc3fd39"
-#     monitor = NetworkMonitor(container_name)
-#     monitor.monitor_network()
-                

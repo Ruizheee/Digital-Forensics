@@ -1,9 +1,6 @@
 import docker
 import os
 
-# DOCKER_CLIENT = docker.from_env()
-# CONTAINERS = DOCKER_CLIENT.containers.list(all=True)
-
 class ContainerForensics:
     def __init__(self):
         self.client = docker.from_env()
@@ -30,9 +27,3 @@ class ContainerForensics:
         except Exception as e:
             print(f"An error occurred: {e}")
 
-'''
-# Usage
-container_name = "lol"  # Replace with the actual container name or ID
-output_path = "output.tar"      # Replace with desired output path
-save_container_image(container_name, output_path)
-'''

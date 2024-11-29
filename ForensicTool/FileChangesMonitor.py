@@ -9,9 +9,6 @@ from ContainerForensics import ContainerForensics
 from ContainerImager import ContainerImager
 
 class FileChangesMonitor:
-    '''
-    Command: docker inspect <container_id> | grep UpperDir
-    '''
     def __init__(self, container):
         self.container = container
         self.containerID = self.container.id
@@ -20,7 +17,7 @@ class FileChangesMonitor:
     def locate_upper_layer(self):        
         try:
             layer_result = subprocess.run(
-                f"docker inspect {self.containerID} | grep MergedDir",
+                f"docker inspect {self.containerID} | grep UpperDir",
                 shell=True,
                 stdout=subprocess.PIPE,
                 stderr=subprocess.PIPE,
@@ -72,7 +69,7 @@ class FileMonitoringHandler(FileSystemEventHandler):
 
 
     def get_file_path(self, filepath):
-        return filepath.split('/merged/', 1)[-1]
+        return filepath.split('/diff/', 1)[-1]
 
     def log_with_timestamp(self, message):
         timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
@@ -102,7 +99,6 @@ class FileMonitoringHandler(FileSystemEventHandler):
                             containerImager.create_disk_image("./results/output.tar", "./results/disk_image.img")
                             self.observer.stop()
                             exit(0)
-                            # self.observer.join()
                             
                             
 
@@ -117,7 +113,6 @@ class FileMonitoringHandler(FileSystemEventHandler):
                         containerImager.create_disk_image("./results/output.tar", "./results/disk_image.img")
                         self.observer.stop()
                         exit(0)
-                        # self.observer.join()
                             
                               
     def on_created(self, event):
@@ -136,7 +131,6 @@ class FileMonitoringHandler(FileSystemEventHandler):
                     containerImager.create_disk_image("./results/output.tar", "./results/disk_image.img")
                     self.observer.stop()
                     exit(0)
-                    # self.observer.join()
                             
             else:
                 self.log_with_timestamp(f"Empty file {filepath} has been created.")
@@ -148,7 +142,6 @@ class FileMonitoringHandler(FileSystemEventHandler):
                     containerImager.create_disk_image("./results/output.tar", "./results/disk_image.img")
                     self.observer.stop()
                     exit(0)
-                    # self.observer.join()
             
 
     def on_deleted(self, event):
@@ -163,11 +156,4 @@ class FileMonitoringHandler(FileSystemEventHandler):
                     containerImager.create_disk_image("./results/output.tar", "./results/disk_image.img")
                     self.observer.stop()
                     exit(0)
-                    # self.observer.join()
         
-
-# if __name__ == "__main__":
-#     client = docker.from_env()
-#     container = client.containers.get("7d47cbc3fd39")
-#     monitor = FileChangesMonitor(container)
-#     monitor.monitor_filechanges()

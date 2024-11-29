@@ -85,8 +85,3 @@ class StatisticsMonitor:
         except KeyboardInterrupt:
             print(f"\nMonitoring stopped.")
         
-# if __name__ == "__main__":
-#     client = docker.from_env()
-#     container = client.containers.get("7d47cbc3fd39")
-#     monitor = StatisticsMonitor(client, container)
-#     monitor.monitor_statistics()

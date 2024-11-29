@@ -5,9 +5,6 @@ import subprocess
 from datetime import datetime
 
 class FileTreeExtractor:
-    '''
-    Command: docker inspect <container_id> | grep MergedDir
-    '''
     def __init__(self, container):
         self.container = container
         self.containerID = self.container.id
@@ -50,8 +47,3 @@ class FileTreeExtractor:
                 except subprocess.CalledProcessError as e:
                     print(f"An error has occurred while saving to {output_file}.")
 
-# if __name__ == "__main__":
-#     client = docker.from_env()
-#     container = client.containers.get("7d47cbc3fd39")
-#     extractor = FileTreeExtractor(container)
-#     extractor.extract_filetree()

@@ -45,9 +45,3 @@ class ContainerImager:
             subprocess.run(["sudo", "umount", mount_dir], check=True)
             print("Disk image created successfully.")
 
-'''
-# Usage
-tar_path = "output.tar"     # Path to the exported container tar file
-image_path = "disk_image.img"  # Path to the resulting disk image
-create_disk_image(tar_path, image_path)
-'''
